@@ -1,12 +1,10 @@
-from sqlalchemy import Column, Integer, Text, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from app.db import Base
+from app.db import Base  # <- Import important
 
 class Review(Base):
     __tablename__ = "reviews"
-
     id = Column(Integer, primary_key=True, index=True)
-    text = Column(Text, nullable=False)
-    client_id = Column(Integer, ForeignKey("clients.id"))
+    text = Column(String, nullable=False)
 
-    client = relationship("Client", backref="reviews")
+    sentiment_result = relationship("SentimentResult", back_populates="review", uselist=False)
