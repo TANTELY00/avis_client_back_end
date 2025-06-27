@@ -1,1 +1,4 @@
-DATABASE_URL = "postgresql+asyncpg://tanteli:tanteli123@localhost:5432/avisdb"
+import os
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
