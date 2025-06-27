@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    container_name: avisclient_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: tanteli
+      POSTGRES_PASSWORD: tanteli123
+      POSTGRES_DB: avisdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
