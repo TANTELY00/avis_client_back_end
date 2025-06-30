@@ -7,5 +7,7 @@ class SentimentResult(Base):
     id = Column(Integer, primary_key=True, index=True)
     review_id = Column(Integer, ForeignKey("reviews.id"), nullable=False, unique=True)
     sentiment = Column(String, nullable=False)
+    theme = Column(String, nullable=True)
+    suggestion = Column(String, nullable=True)
 
     review = relationship("Review", back_populates="sentiment_result")
