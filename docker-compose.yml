@@ -17,7 +17,6 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: avisclient_backend
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
       - "8000:8000"
     volumes:
@@ -26,6 +25,6 @@ services:
       - db
     environment:
       DATABASE_URL: postgresql+asyncpg://tanteli:tanteli123@db:5432/avisdb
-
+      PORT: 8000  # ajoute cette ligne pour que docker-compose définisse aussi le port
 volumes:
   postgres_data:
