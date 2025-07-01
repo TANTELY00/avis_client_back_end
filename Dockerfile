@@ -19,4 +19,5 @@ COPY . .
 EXPOSE 8000
 
 # Commande de démarrage FastAPI avec variable d'environnement PORT (par défaut à 8000)
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000} --reload"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port $PORT --reload"]
+
